@@ -1,12 +1,11 @@
 var request = require('request')
-var lodash = require('lodash')
-var rp = require('request-promise');
+var _ = require('lodash')
 
 const STEAM_KEY = process.env.STEAM_TOKEN
 const mySteamID = "76561198424270946"
 const polloID= "76561198253766347"
 const jermID =  "76561198853484289"
-let data_map = {};
+let data_map = [];
 
 function getOwnedGames(id) {
     let url = `http://api.steampowered.com/IPlayerService/GetOwnedGames/v0001/?key=${STEAM_KEY}&steamid=${id}&format=json&include_appinfo=true`
@@ -27,16 +26,19 @@ function getOwnedGames(id) {
 
 
 function parseGamesList(gamesArray, count, id) {
-    data_map[id] = {
-        count: count,
-        games: gamesArray
-    }
+    var game_names = []
     gamesArray.forEach( game => {
-        // console.log(game.name);
+        game_names.push(game.name);
     })
-    console.log(data_map)
+    data_map.push(game_names)
+    var commonGames = _.intersection(data_map[0], data_map[1], data_map[2]);
+    console.log(commonGames[getRandomInt(commonGames.length - 1)])
+
 }
 
+function getRandomInt(max) {
+  return Math.floor(Math.random() * Math.floor(max));
+}
 
 
 
