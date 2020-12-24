@@ -1,5 +1,7 @@
 var request = require('request')
 var lodash = require('lodash')
+var rp = require('request-promise');
+
 const STEAM_KEY = process.env.STEAM_TOKEN
 const mySteamID = "76561198424270946"
 const polloID= "76561198253766347"
