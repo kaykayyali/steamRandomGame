@@ -5,6 +5,7 @@ const STEAM_KEY = process.env.STEAM_TOKEN
 const mySteamID = "76561198424270946"
 const polloID= "76561198253766347"
 const jermID =  "76561198853484289"
+const ehabID = "76561198416237896"
 let data_map = [];
 
 function getOwnedGames(id) {
@@ -45,3 +46,4 @@ function getRandomInt(max) {
 getOwnedGames(mySteamID);
 getOwnedGames(polloID);
 getOwnedGames(jermID);
+getOwnedGames(ehabID);
