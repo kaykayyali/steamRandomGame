@@ -1,0 +1,23 @@
+{
+  "name": "steamrandomgame",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/kaykayyali/steamRandomGame.git"
+  },
+  "author": "Kaysser Kayyali",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kaykayyali/steamRandomGame/issues"
+  },
+  "homepage": "https://github.com/kaykayyali/steamRandomGame#readme"
+}
