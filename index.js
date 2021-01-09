@@ -3,9 +3,19 @@ var _ = require('lodash')
 
 const STEAM_KEY = process.env.STEAM_TOKEN
 const mySteamID = "76561198424270946"
-const polloID= "76561198253766347"
+const polloID = "76561198253766347"
 const jermID =  "76561198853484289"
 const ehabID = "76561198416237896"
+const zenoID = "76561198807506994"
+
+const user_map = {
+    kk: mySteamID,
+    pollo:  polloID,
+    jerm:  jermID,
+    ehab: ehabID,
+    zeno: zenoID
+};
+
 let data_map = [];
 
 function getOwnedGames(id) {
@@ -32,8 +42,10 @@ function parseGamesList(gamesArray, count, id) {
         game_names.push(game.name);
     })
     data_map.push(game_names)
-    var commonGames = _.intersection(data_map[0], data_map[1], data_map[2]);
-    console.log(commonGames[getRandomInt(commonGames.length - 1)])
+    var commonGames = _.intersection(data_map[0], data_map[1], data_map[2], data_map[3], data_map[4]);
+    console.clear();
+    console.log("Common Games: " + commonGames)
+    console.log("Selected Game: " + commonGames[getRandomInt(commonGames.length - 1)])
 
 }
 
@@ -42,8 +54,6 @@ function getRandomInt(max) {
 }
 
 
-
-getOwnedGames(mySteamID);
-getOwnedGames(polloID);
-getOwnedGames(jermID);
-getOwnedGames(ehabID);
+Object.keys(user_map).forEach(user => {
+    getOwnedGames(user_map[user])
+});
